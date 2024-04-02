@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import CardButton from "@/components/CardButton.vue"; 
+
+
 defineProps<{
   gameTitle: string;
   gameDescription: string;
@@ -31,9 +34,9 @@ defineProps<{
             <span class="font-extrabold text-white text-xl">999</span>
             <h1 class="font-medium text-white text-xs">,99</h1>
           </div>
-          <button class="bg-emerald-600 px-5 py-1.5 rounded-lg">
-            <label class="text-emerald-50 text-sm font-bold">Buy</label>
-          </button>
+          
+          <CardButton/>
+
         </div>
       </div>
     </div>
