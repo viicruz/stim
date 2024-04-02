@@ -30,15 +30,15 @@ const toggleHeart = () => {
       <div class="absolute bottom-0 right-0 p-2">
         <button
           @click="toggleHeart"
-          class="w-10 h-10 bg-emerald-50 bg-gradient-to-r from-white flex items-center justify-center rounded-lg"
+          class="size-9 bg-emerald-50 backdrop-blur-xl flex items-center justify-center rounded-lg"
         >
           <PhHeart
             :class="{
-              'fill-emerald-900': isHearted,
-              'text-emerald-900': !isHearted,
+              'fill-emerald-800': isHearted,
+              'text-emerald-800': !isHearted,
             }"
             class="w-7 h-7"
-            :weight="isHearted ? 'fill' : 'light'"
+            :weight="isHearted ? 'fill' : 'regular'"
           />
         </button>
       </div>
