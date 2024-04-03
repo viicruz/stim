@@ -64,6 +64,36 @@ const games = [
     title: "Resident Evil Village",
     description: "Full Game - PC/PS4/Xbox",
   },
+  {
+    id: 13,
+    title: "Cyberpunk 2077",
+    description: "Full Game - PC/PS4/Xbox",
+  },
+  {
+    id: 14,
+    title: "The Witcher 3",
+    description: "Full Game - PC/PS4/Xbox/Switch",
+  },
+  {
+    id: 15,
+    title: "Horizon Zero Dawn",
+    description: "Full Game - PS4",
+  },
+  {
+    id: 16,
+    title: "Death Stranding",
+    description: "Full Game - PC/PS4",
+  },
+  {
+    id: 17,
+    title: "Assassin's Creed Valhalla",
+    description: "Full Game - PC/PS4/Xbox",
+  },
+  {
+    id: 18,
+    title: "Marvel's Spider",
+    description: "Full Game - PS4",
+  }
 ];
 </script>
 
@@ -74,7 +104,9 @@ const games = [
 
     <div class="flex w-full justify-center overflow-y-scroll max-h-screen">
       <div class="flex flex-col w-full max-w-7xl">
-        <h1 class="text-white text-3xl font-bold">Games</h1>
+        <div class="pt-20 pb-5 pl-6">
+        <h1 class="text-white text-3xl font-bold">Popular Games</h1>
+        </div>
         <div
           class="flex flex-wrap w-full gap-4 items-start justify-center h-fit"
         >

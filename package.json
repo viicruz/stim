@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@phosphor-icons/vue": "^2.1.6",
+    "@tanstack/vue-query": "^5.28.13",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
