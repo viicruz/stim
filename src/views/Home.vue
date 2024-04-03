@@ -5,6 +5,7 @@ import { useQueryClient } from "@tanstack/vue-query";
 //Components imports
 import GameCard from "@/components/GameCard.vue";
 import SideBar from "@/components/SideBar.vue";
+import NavBar from "@/components/NavBar.vue";
 
 //Hooks imports
 import { useGames } from "@/hooks/queries/useGames";
@@ -17,7 +18,12 @@ console.log(games.data.value);
 </script>
 
 <template>
-  <main class="bg-slate-800 h-fit min-h-screen flex flex-row relative">
+  <main class="bg-slate-800 h-fit min-h-screen">
+    <div class="w-full flex items-center justify-center ">
+    <NavBar/>
+    </div>
+    <div class="flex flex-row relative">
+
     <SideBar />
     <div class="text-center text-white flex flex-col items-start pb-5"></div>
 
@@ -39,5 +45,7 @@ console.log(games.data.value);
         </div>
       </div>
     </div>
+  </div>
+
   </main>
 </template>
