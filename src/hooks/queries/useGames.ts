@@ -2,6 +2,7 @@ import { s } from "@/utils/api";
 import { z } from "zod";
 import { useQuery } from "@tanstack/vue-query";
 import { platformSchema } from "@/schemas/platform";
+import { env } from "@/utils/env";
 
 const gameSchema = z.object({
   count: z.number(),
@@ -35,11 +36,12 @@ const gameSchema = z.object({
   user_platforms: z.boolean(),
 });
 
+
 async function fetchGames() {
   try {
     console.log("fetching games");
     const response = await s.get({
-      url: "/games?key=9009824dbc2f4ccbb965bad2a3a6e447&genres=action&",
+       url: `/games?key=${env.VITE_API_KEY}&genres=action&`,
       schema: gameSchema,
     });
     console.log("fetched games", response);
