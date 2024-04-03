@@ -4,7 +4,6 @@ import { PhHeart } from "@phosphor-icons/vue";
 import { ref } from "vue";
 
 //Components imports
-import CardButton from "@/components/CardButton.vue";
 
 //Types imports
 import type { Platform } from "@/schemas/platform";
@@ -25,32 +24,18 @@ const toggleHeart = () => {
 </script>
 
 <template>
-  <div class="w-48 bg-slate-700 rounded-lg shadow-2xl overflow-hidden">
-    <div class="w-full h-48 overflow-hidden relative">
+  
+  <div class="bg-transparent rounded-lg transition-all hover:bg-gradient-to-br from-primary-500 to-secondary-500 p-0.5">
+  <div class="w-48  shadow-2xl h-64 overflow-hidden rounded-lg relative">
+    <div class="w-full h-full overflow-hidden relative">
       <img
         class="object-cover w-full h-full"
         :src="gameImage"
         alt="Game Image"
       />
-
-      <div class="absolute bottom-0 right-0 p-2">
-        <button
-          @click="toggleHeart"
-          class="size-9 bg-emerald-50 backdrop-blur-xl flex items-center justify-center rounded-lg"
-        >
-          <PhHeart
-            :class="{
-              'fill-emerald-800': isHearted,
-              'text-emerald-800': !isHearted,
-            }"
-            class="w-7 h-7"
-            :weight="isHearted ? 'fill' : 'regular'"
-          />
-        </button>
-      </div>
     </div>
 
-    <div class="px-1 py-0.5">
+    <div class="px-1 py-0.5 absolute bottom-0 left-0 w-full z-[1] bg-secondary-900/70 backdrop-blur-md">
       <div class="w-full flex flex-col items-start">
         <h3 class="line-clamp-1 text-white font-bold text-base">
           {{ gameTitle }}
@@ -69,9 +54,9 @@ const toggleHeart = () => {
             <span class="font-extrabold text-white text-xl">999</span>
             <h1 class="font-medium text-white text-xs">,99</h1>
           </div>
-          <CardButton />
         </div>
       </div>
     </div>
   </div>
+</div>
 </template>
