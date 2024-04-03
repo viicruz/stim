@@ -8,7 +8,14 @@ import CardButton from "@/components/CardButton.vue";
 
 defineProps<{
   gameTitle: string;
-  gameDescription: string;
+  gameImage: string;
+  gamePlatforms: {
+    platform: {
+      slug: string;
+      name: string;
+      id: number;
+    };
+  }[];
 }>();
 
 const isHearted = ref<boolean>(false);
@@ -16,6 +23,7 @@ const isHearted = ref<boolean>(false);
 const toggleHeart = () => {
   isHearted.value = !isHearted.value;
 };
+
 </script>
 
 <template>
@@ -23,7 +31,7 @@ const toggleHeart = () => {
     <div class="w-full h-48 overflow-hidden relative">
       <img
         class="object-cover w-full h-full"
-        src="https://th.bing.com/th/id/OIP.KxNhQoVv4unUCYC6CGGNYAAAAA?rs=1&pid=ImgDetMain"
+        :src="gameImage"
         alt="Game Image"
       />
 
@@ -50,7 +58,7 @@ const toggleHeart = () => {
           {{ gameTitle }}
         </h3>
         <p class="text-white font-light text-sm line-clamp-1">
-          {{ gameDescription }}
+          {{ gamePlatforms.map((platform) => platform.platform.name).join(", ")}}
         </p>
       </div>
 

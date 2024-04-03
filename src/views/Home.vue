@@ -1,100 +1,19 @@
 <script setup lang="ts">
+//Libraries imports
+import { useQueryClient } from "@tanstack/vue-query";
+
 //Components imports
 import GameCard from "@/components/GameCard.vue";
 import SideBar from "@/components/SideBar.vue";
 
-const games = [
-  {
-    id: 1,
-    title: "Overwatch 2",
-    description: "Full Game - PC/PS4/Xbox/Switch",
-  },
-  {
-    id: 2,
-    title: "The Last of Us Part II",
-    description: "Full Game - PS4",
-  },
-  {
-    id: 3,
-    title: "God of War",
-    description: "Full Game - PS4",
-  },
-  {
-    id: 4,
-    title: "Red Dead Redemption 2",
-    description: "Full Game - Pc/PS4/Xbox",
-  },
-  {
-    id: 5,
-    title: "Ghost of Tsushima",
-    description: "Full Game - PS4",
-  },
-  {
-    id: 6,
-    title: "Cyberpunk 2077",
-    description: "Full Game - PC/PS4/Xbox",
-  },
-  {
-    id: 7,
-    title: "The Witcher 3",
-    description: "Full Game - PC/PS4/Xbox/Switch",
-  },
-  {
-    id: 8,
-    title: "Horizon Zero Dawn",
-    description: "Full Game - PS4",
-  },
-  {
-    id: 9,
-    title: "Death Stranding",
-    description: "Full Game - PC/PS4",
-  },
-  {
-    id: 10,
-    title: "Assassin's Creed Valhalla",
-    description: "Full Game - PC/PS4/Xbox",
-  },
-  {
-    id: 11,
-    title: "Marvel's Spider",
-    description: "Full Game - PS4",
-  },
-  {
-    id: 12,
-    title: "Resident Evil Village",
-    description: "Full Game - PC/PS4/Xbox",
-  },
-  {
-    id: 13,
-    title: "Cyberpunk 2077",
-    description: "Full Game - PC/PS4/Xbox",
-  },
-  {
-    id: 14,
-    title: "The Witcher 3",
-    description: "Full Game - PC/PS4/Xbox/Switch",
-  },
-  {
-    id: 15,
-    title: "Horizon Zero Dawn",
-    description: "Full Game - PS4",
-  },
-  {
-    id: 16,
-    title: "Death Stranding",
-    description: "Full Game - PC/PS4",
-  },
-  {
-    id: 17,
-    title: "Assassin's Creed Valhalla",
-    description: "Full Game - PC/PS4/Xbox",
-  },
-  {
-    id: 18,
-    title: "Marvel's Spider",
-    description: "Full Game - PS4",
-  }
-];
+//Hooks imports
+import { useGames } from "@/hooks/queries/useGames";
+
+const queryClient = useQueryClient();
+
+const games = useGames();
+
+console.log(games.data.value);
 </script>
 
 <template>
@@ -105,16 +24,17 @@ const games = [
     <div class="flex w-full justify-center overflow-y-scroll max-h-screen">
       <div class="flex flex-col w-full max-w-7xl">
         <div class="pt-20 pb-5 pl-6">
-        <h1 class="text-white text-3xl font-bold">Popular Games</h1>
+          <h1 class="text-white text-3xl font-bold">Popular Games</h1>
         </div>
         <div
           class="flex flex-wrap w-full gap-4 items-start justify-center h-fit"
         >
           <GameCard
-            v-for="game in games"
-            :key="game.id"
-            :game-title="game.title"
-            :gameDescription="game.description"
+            v-for="game in games.data.value?.results"
+            :key="game.slug"
+            :game-title="game.name"
+            :game-image="game.background_image"
+            :gamePlatforms="game.platforms"
           />
         </div>
       </div>
