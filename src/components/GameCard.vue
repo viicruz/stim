@@ -6,15 +6,14 @@ import { ref } from "vue";
 //Components imports
 import CardButton from "@/components/CardButton.vue";
 
+//Types imports
+import type { Platform } from "@/schemas/platform";
+
 defineProps<{
   gameTitle: string;
   gameImage: string;
   gamePlatforms: {
-    platform: {
-      slug: string;
-      name: string;
-      id: number;
-    };
+    platform: Platform;
   }[];
 }>();
 
@@ -23,7 +22,6 @@ const isHearted = ref<boolean>(false);
 const toggleHeart = () => {
   isHearted.value = !isHearted.value;
 };
-
 </script>
 
 <template>
@@ -58,7 +56,9 @@ const toggleHeart = () => {
           {{ gameTitle }}
         </h3>
         <p class="text-white font-light text-sm line-clamp-1">
-          {{ gamePlatforms.map((platform) => platform.platform.name).join(", ")}}
+          {{
+            gamePlatforms.map((platform) => platform.platform.name).join(", ")
+          }}
         </p>
       </div>
 

@@ -1,6 +1,7 @@
 import { s } from "@/utils/api";
 import { z } from "zod";
-import { useQuery, type UseQueryReturnType } from "@tanstack/vue-query";
+import { useQuery } from "@tanstack/vue-query";
+import { platformSchema } from "@/schemas/platform";
 
 const gameSchema = z.object({
   count: z.number(),
@@ -13,11 +14,7 @@ const gameSchema = z.object({
       playtime: z.number(),
       platforms: z.array(
         z.object({
-          platform: z.object({
-            name: z.string(),
-            id: z.number(),
-            slug: z.string(),
-          }),
+          platform: platformSchema,
         })
       ),
       stores: z
@@ -29,10 +26,10 @@ const gameSchema = z.object({
               slug: z.string(),
             }),
           })
-        ).nullable(),
+        )
+        .nullable(),
       released: z.string(),
       background_image: z.string(),
-      
     })
   ),
   user_platforms: z.boolean(),
