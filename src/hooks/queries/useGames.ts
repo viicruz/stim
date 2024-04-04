@@ -12,6 +12,7 @@ const gameSchema = z.object({
   previous: z.string().nullable(),
   results: z.array(
     z.object({
+      id:z.number(),
       slug: z.string(),
       name: z.string(),
       playtime: z.number(),

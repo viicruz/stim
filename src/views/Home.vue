@@ -35,7 +35,8 @@ console.log(games.data.value);
         >
           <GameCard
             v-for="game in games.data.value?.results"
-            :key="game.slug"
+            :key="game.id"
+            :game-id="game.id"
             :game-title="game.name"
             :game-image="game.background_image"
             :gamePlatforms="game.platforms"
