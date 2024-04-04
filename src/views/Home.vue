@@ -1,6 +1,5 @@
 <script setup lang="ts">
 //Libraries imports
-import { useQueryClient } from "@tanstack/vue-query";
 
 //Components imports
 import GameCard from "@/components/GameCard.vue";
@@ -10,7 +9,6 @@ import NavBar from "@/components/NavBar.vue";
 //Hooks imports
 import { useGames } from "@/hooks/queries/useGames";
 
-const queryClient = useQueryClient();
 
 const games = useGames();
 
@@ -22,6 +20,7 @@ console.log(games.data.value);
     <div class="w-full flex items-center justify-center absolute left-0 top-0 z-10">
     <NavBar/>
     </div>
+    <SideBar/>
     <div class="flex flex-row relative">
 
     <div class="text-center text-white flex flex-col items-start pb-5"></div>

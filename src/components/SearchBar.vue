@@ -17,8 +17,23 @@ const games = useSearchGames(search);
 
 const handleInput = () => {
   showResults.value = searchInput.value.trim() !== "";
-  search.value = searchInput.value.trim();
-  
+  handleSearch();
+};
+
+function debouncedText() {
+  let timer: NodeJS.Timeout;
+  return function (callback: () => void, ms: number) {
+    clearTimeout(timer);
+    timer = setTimeout(callback, ms);
+  };
+}
+
+const debouncedSearch = debouncedText();
+
+function handleSearch(){
+  debouncedSearch(() => {
+    search.value = searchInput.value;
+  }, 750);
 };
 
 </script>
@@ -41,6 +56,7 @@ const handleInput = () => {
       <div
         class="w-full p-0 text-black bg-white border-t-2 border-neutral-200"
         v-show="showResults"
+        ref="parent"
       >
         <ul>
           <SearchGameCard
