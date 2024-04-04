@@ -1,7 +1,9 @@
 <script setup lang="ts">
-  defineProps<{
+import { PhStar } from "@phosphor-icons/vue";
+defineProps<{
   gameTitle: string;
   gameImage: string;
+  gameScore: number;
 }>();
 </script>
 
@@ -13,11 +15,7 @@
       <div
         className="rounded-full overflow-hidden border min-h-8 max-h-8 min-w-8 max-w-8"
       >
-        <img
-          class="w-8 h-8"
-          alt="Game Image"
-          :src="gameImage"
-        />
+        <img class="w-8 h-8" alt="Game Image" :src="gameImage" />
       </div>
 
       <div
@@ -27,14 +25,16 @@
           {{ gameTitle }}
         </p>
         <div className="flex flex-row gap-1 items-center">
-          <p className="font-normal text-[0.65rem] text-neutral-500">
-            aopajgjagjao
-          </p>
+          <PhStar class="text-base text-yellow-400" weight="fill" />
+          {{ gameScore }}
         </div>
       </div>
       <div
         className="flex flex-row flex-wrap gap-1 justify-start items-start w-full h-10"
-      ></div>
+      >
+        <div class="p-2 bg-red-600 text-white">
+        </div>
+      </div>
     </div>
   </div>
 </template>

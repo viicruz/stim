@@ -1,3 +1,4 @@
+//Libary Imports
 import { s } from "@/utils/api";
 import { z } from "zod";
 import { useQuery } from "@tanstack/vue-query";
@@ -32,9 +33,12 @@ const gameSchema = z.object({
         .nullable(),
       released: z.string(),
       background_image: z.string(),
+      rating: z.number(),
     })
   ),
   user_platforms: z.boolean(),
+
+  
 });
 
 async function fetchGames() {

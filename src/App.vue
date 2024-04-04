@@ -1,10 +1,10 @@
 <script setup lang="ts">
-
 //Components imports
-import Home from '@/views/Home.vue'
+import Home from "@/views/Home.vue";
+import Game from "./views/Game.vue";
+
 </script>
 <template>
-  <Home />
+  <router-view />
+
 </template>
-
-

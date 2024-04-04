@@ -30,12 +30,11 @@ function debouncedText() {
 
 const debouncedSearch = debouncedText();
 
-function handleSearch(){
+function handleSearch() {
   debouncedSearch(() => {
     search.value = searchInput.value;
   }, 750);
-};
-
+}
 </script>
 
 <template>
@@ -63,6 +62,7 @@ function handleSearch(){
             v-for="game in games.data.value?.results"
             :game-title="game.name"
             :game-image="game.background_image"
+            :game-score="game.rating"
           />
         </ul>
       </div>

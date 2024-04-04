@@ -1,4 +1,4 @@
-//Libary Imports
+//Library Imports
 import { s } from "@/utils/api";
 import { z } from "zod";
 import { useQuery } from "@tanstack/vue-query";
@@ -12,7 +12,6 @@ const gameSchema = z.object({
   previous: z.string().nullable(),
   results: z.array(
     z.object({
-      id:z.number(),
       slug: z.string(),
       name: z.string(),
       playtime: z.number(),
@@ -38,26 +37,13 @@ const gameSchema = z.object({
     })
   ),
   user_platforms: z.boolean(),
-  
-  tags: z.array(
-    z.object({
-      id: z.number(),
-      name: z.string(),
-      slug: z.string(),
-      language: z.string(),
-      games_count: z.number(),
-      image_background: z.string(),
-    
-    })
-  ),
-  
 });
 
-async function fetchGames(search: Ref<string>) {
+async function fetchGames(id: Ref<number>) {
   try {
     console.log("fetching games");
     const response = await s.get({
-      url: `/games?key=${env.VITE_API_KEY}&genres=action&search=${search.value}&page_size=10`,
+      url: `/games/${id.value}?key=${env.VITE_API_KEY}&`,
       schema: gameSchema,
     });
     console.log("fetched games", response);
@@ -67,11 +53,11 @@ async function fetchGames(search: Ref<string>) {
   }
 }
 
-export function useSearchGames(search: Ref<string>) {
-  console.log("useGames", search);
+export function useSearchGameById(id: Ref<number>) {
+  console.log("useGames", id);
   return useQuery({
-    queryKey: ["searchGames", search],
-    queryFn: () => fetchGames(search),
+    queryKey: ["searchGameById", id],
+    queryFn: () => fetchGames(id),
     staleTime: 1000 * 60,
   });
 }

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-//Libraries imports
+//Library imports
 
-//Components imports
+//Component imports
 import GameCard from "@/components/GameCard.vue";
 import SideBar from "@/components/SideBar.vue";
 import NavBar from "@/components/NavBar.vue";
 
-//Hooks imports
+//Hook imports
 import { useGames } from "@/hooks/queries/useGames";
 
 
@@ -39,6 +39,7 @@ console.log(games.data.value);
             :game-title="game.name"
             :game-image="game.background_image"
             :gamePlatforms="game.platforms"
+            :gameScore="game.rating"
           />
         </div>
       </div>
