@@ -13,6 +13,9 @@ console.log(searchGame.data.value);
 </script>
 <template>
   <main>
-    <h1>Game</h1>
+    <h1>
+      {{ $route.params.id }}
+      Game
+    </h1>
   </main>
 </template>
