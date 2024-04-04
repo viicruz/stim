@@ -1,21 +1,17 @@
 <script setup lang="ts">
 //Library Imports
 import { ref } from "vue";
+import { useRoute } from "vue-router";
 
 //Component Imports
 
 //Hook Imports
 import { useSearchGameById } from "@/hooks/queries/useSearchGameById";
+const route = useRoute();
+const id = ref(route.params.id);
 
-const id = ref(22508);
 const searchGame = useSearchGameById(id);
-console.log(searchGame.data.value);
 </script>
 <template>
-  <main>
-    <h1>
-      {{ $route.params.id }}
-      Game
-    </h1>
-  </main>
+  <main></main>
 </template>

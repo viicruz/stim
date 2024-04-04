@@ -6,5 +6,4 @@ import Game from "./views/Game.vue";
 </script>
 <template>
   <router-view />
-
 </template>
