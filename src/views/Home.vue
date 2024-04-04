@@ -18,13 +18,12 @@ console.log(games.data.value);
 </script>
 
 <template>
-  <main class="bg-slate-800 h-fit min-h-screen">
-    <div class="w-full flex items-center justify-center ">
+  <main class="bg-slate-800 min-h-screen h-fit">
+    <div class="w-full flex items-center justify-center">
     <NavBar/>
     </div>
     <div class="flex flex-row relative">
 
-    <SideBar />
     <div class="text-center text-white flex flex-col items-start pb-5"></div>
 
     <div class="flex w-full justify-center overflow-y-scroll max-h-screen">

@@ -37,11 +37,11 @@ const gameSchema = z.object({
   user_platforms: z.boolean(),
 });
 
-async function fetchGames() {
+async function fetchGames(search: Ref<string>) {
   try {
     console.log("fetching games");
     const response = await s.get({
-      url: `/games?key=${env.VITE_API_KEY}&genres=action&page_size=18`,
+      url: `/games?key=${env.VITE_API_KEY}&genres=action&search=${search.value}&page_size=10`,
       schema: gameSchema,
     });
     console.log("fetched games", response);
@@ -51,11 +51,11 @@ async function fetchGames() {
   }
 }
 
-export function useGames() {
-  console.log("useGames");
+export function useSearchGames(search: Ref<string>) {
+  console.log("useGames", search);
   return useQuery({
-    queryKey: ["games"],
-    queryFn: fetchGames,
+    queryKey: ["searchGames", search],
+    queryFn: () => fetchGames(search),
     staleTime: 1000 * 60,
   });
 }

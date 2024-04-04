@@ -15,6 +15,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^0.8.1",
     "@phosphor-icons/vue": "^2.1.6",
     "@tanstack/vue-query": "^5.28.13",
     "spellbinder": "^0.0.4",

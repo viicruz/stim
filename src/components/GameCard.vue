@@ -16,6 +16,7 @@ defineProps<{
   }[];
 }>();
 
+
 const isHearted = ref<boolean>(false);
 
 const toggleHeart = () => {
