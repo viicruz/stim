@@ -4,8 +4,9 @@ import { z } from "zod";
 import { useQuery } from "@tanstack/vue-query";
 import { platformSchema } from "@/schemas/platform";
 import { env } from "@/utils/env";
-import { type Ref } from "vue";
 
+
+//Zod Schema for the game object validation
 const gameSchema = z.object({
   count: z.number(),
   next: z.string().nullable(),
@@ -38,10 +39,10 @@ const gameSchema = z.object({
     })
   ),
   user_platforms: z.boolean(),
-
   
 });
 
+//Function to fetch the games from the API, get action games with a page size of 18
 async function fetchGames() {
   try {
     console.log("fetching games");
@@ -56,6 +57,8 @@ async function fetchGames() {
   }
 }
 
+
+//export the useQuery function to be used in the component
 export function useGames() {
   console.log("useGames");
   return useQuery({

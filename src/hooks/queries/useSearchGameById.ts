@@ -6,6 +6,8 @@ import { platformSchema } from "@/schemas/platform";
 import { env } from "@/utils/env";
 import { type Ref } from "vue";
 
+
+//Zod Schema for the game object validation
 const gameSchema = z.object({
   slug: z.string(),
   name: z.string(),
@@ -31,6 +33,8 @@ const gameSchema = z.object({
   rating: z.number(),
 });
 
+
+//Function to fetch the game from the API, get the game information by id
 async function fetchGames(id: Ref<string | string[]>) {
   try {
     console.log("fetching games");
@@ -45,6 +49,8 @@ async function fetchGames(id: Ref<string | string[]>) {
   }
 }
 
+
+//export the useQuery function to be used in the component
 export function useSearchGameById(id: Ref<string | string[]>) {
   console.log("useGames", id);
   return useQuery({

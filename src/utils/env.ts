@@ -1,10 +1,12 @@
 
 import z from "zod";
 
+//Zod Schema for the environment variables
 const envSchema = z.object({
     VITE_API_KEY: z.string(),
 });
 
+//Parse the environment variables
 const _env = envSchema.safeParse(import.meta.env);
 
 if (!_env.success) {

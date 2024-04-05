@@ -7,19 +7,27 @@ import SearchGameCard from "@/components/SearchGameCard.vue";
 
 import { useSearchGames } from "@/hooks/queries/useSearchGames";
 
+//Search bar logic
 const search = ref("");
 
+//Search bar input
 const searchInput = ref("");
+
+//Show the search results
 const showResults = ref(false);
 const [parent] = useAutoAnimate();
 
+//Get the games from the search
 const games = useSearchGames(search);
 
+//Handle the search input
 const handleInput = () => {
   showResults.value = searchInput.value.trim() !== "";
   handleSearch();
 };
 
+
+//Debounced text in search input
 function debouncedText() {
   let timer: NodeJS.Timeout;
   return function (callback: () => void, ms: number) {
@@ -30,6 +38,8 @@ function debouncedText() {
 
 const debouncedSearch = debouncedText();
 
+
+//Handle the search
 function handleSearch() {
   debouncedSearch(() => {
     search.value = searchInput.value;
