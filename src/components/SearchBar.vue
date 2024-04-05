@@ -70,6 +70,7 @@ function handleSearch() {
         <ul>
           <SearchGameCard
             v-for="game in games.data.value?.results"
+            :game-id="game.id"
             :game-title="game.name"
             :game-image="game.background_image"
             :game-score="game.rating"

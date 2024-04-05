@@ -13,7 +13,7 @@ import { useSearchGameById } from "@/hooks/queries/useSearchGameById";
 const route = useRoute();
 const id = ref(route.params.id);
 
-const searchGame = useSearchGameById(id);
+const game = useSearchGameById(id);
 </script>
 <template>
   <main class="bg-slate-800 min-h-screen h-fit relative">
@@ -27,8 +27,42 @@ const searchGame = useSearchGameById(id);
       <div class="flex flex-col w-full max-w-7xl">
         <div class="pt-20 pb-5 pl-6">
           <h1 class="text-white text-xl font-bold">
-            {{ searchGame.data.value?.name }}
+            {{ game.data.value?.name }}
           </h1>
+          <img
+            v-for="gameScreenshot in game.data.value?.short_screenshots"
+            class="w-48 h-48 rounded-lg"
+            :src="gameScreenshot.image"
+            alt="Game Image"
+            />
+
+            <img
+              class="w-48 h-48 rounded-lg"
+              :src="game.data.value?.background_image"
+              alt="Game Image"
+            />
+
+            <p class="text-white text-xl font-bold">
+              {{ game.data.value?.description_raw }}
+            </p>
+
+            <p v-for="platform in game.data.value?.platforms">
+              {{ platform.platform.name }}
+            </p>
+
+            <p>
+              {{ game.data.value?.rating }}
+            </p>
+
+            <p>
+              {{ game.data.value?.released }}
+            </p>
+            <p>
+            {{ game.data.value?.genres.map((genre) => genre.name).join(", ") }}
+            </p>
+            <p>
+              metacritic: {{ game.data.value?.metacritic }}
+            </p>
         </div>
       </div>
     </div>

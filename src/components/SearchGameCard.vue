@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { PhStar } from "@phosphor-icons/vue";
 defineProps<{
+  gameId: number;
   gameTitle: string;
   gameImage: string;
   gameScore: number;
@@ -8,6 +9,7 @@ defineProps<{
 </script>
 
 <template>
+  <RouterLink :to="`/game/${gameId}`">
   <div
     className="bg-transparent rounded-lg transition-all bg-white hover:bg-gradient-to-br from-primary-500 to-secondary-500 ps-0.5"
   >
@@ -37,4 +39,5 @@ defineProps<{
       </div>
     </div>
   </div>
+</RouterLink>
 </template>
