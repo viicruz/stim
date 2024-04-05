@@ -16,7 +16,8 @@ const id = ref(route.params.id);
 const game = useSearchGameById(id);
 </script>
 <template>
-  <main class="bg-slate-800 min-h-screen h-fit relative">
+  <main class="min-h-svh max-h-svh overflow-hidden h-fit relative bg-slate-900">
+    <img class="absolute left-0 top-0 w-full opacity-30 min-h-svh" src="/backgroundImg.jpg" alt="">
     <div
       class="w-full flex items-center justify-center absolute left-0 top-0 z-10"
     >
