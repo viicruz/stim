@@ -67,7 +67,7 @@ function handleSearch() {
         v-show="showResults"
         ref="parent"
       >
-        <ul>
+        <ul v-auto-animate>
           <SearchGameCard
             v-for="game in games.data.value?.results"
             :game-id="game.id"
