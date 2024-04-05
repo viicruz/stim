@@ -49,9 +49,13 @@ const gameSchema = z.object({
       language: z.string(),
       games_count: z.number(),
       image_background: z.string(),
+      
+    
     
     })
   ).optional(),
+
+
   
 });
 
