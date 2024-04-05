@@ -22,6 +22,7 @@ defineProps<{
 </script>
 
 <template>
+  <!-- Navigation to game screen with dynamic id -->
   <RouterLink :to="`/game/${gameId}`">
     <div
       class="bg-transparent rounded-lg transition-all bg-white hover:bg-gradient-to-br from-primary-500 to-secondary-500 ps-0.5"

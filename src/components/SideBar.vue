@@ -1,29 +1,20 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+//Components Imports
+import UserSectionComponent from "@/components/UserSectionComponent.vue";
+import LikedGameSection from "@/components/LikedGameSection.vue";
+import LibraryGameSection from "@/components/LibraryGameSection.vue";
+</script>
 
 <template>
-  <div class="w-80 h-full min-h-screen bg-slate-600 flex flex-col absolute left-0 top-0 z-10">
-    <div class="pb-7">
-      <span class="font-bold text-white text-xl pl-5">Favorites</span>
-      <div class="pl-8 flex flex-col gap-1" >
-        <p class="text-white text-base">Nome do Jogo</p>
-        <p class="text-white text-base">Nome do Jogo</p>
-        <p class="text-white text-base">Nome do Jogo</p>
-        <p class="text-white text-base">Nome do Jogo</p>
-        <p class="text-white text-base">Nome do Jogo</p>
-        <p class="text-white text-base">Nome do Jogo</p>
-      </div>
-    </div>
+  <div
+    class="w-80 h-full min-h-screen bg-secondary-200 p-2 gap-4 flex flex-col absolute left-0 top-0 z-10"
+  >
+    <UserSectionComponent />
 
-    <div>
-      <span class="font-bold text-white text-xl pl-5">Library</span>
-      <div class="pl-8 flex flex-col gap-1">
-        <p class="text-white text-base">Nome do Jogo</p>
-        <p class="text-white text-base">Nome do Jogo</p>
-        <p class="text-white text-base">Nome do Jogo</p>
-        <p class="text-white text-base">Nome do Jogo</p>
-        <p class="text-white text-base">Nome do Jogo</p>
-        <p class="text-white text-base">Nome do Jogo</p>
-      </div>
+    <div class="flex flex-col gap-2">
+      <LikedGameSection />
+      <LibraryGameSection />
     </div>
   </div>
 </template>
