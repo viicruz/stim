@@ -74,7 +74,7 @@ function handleSearch() {
             :game-title="game.name"
             :game-image="game.background_image"
             :game-score="game.rating"
-            v-bind:game-platforms="game.platforms"
+            :game-platforms="game.platforms"
             
           />
         </ul>
